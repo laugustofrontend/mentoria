@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name CAPP_SERVER_NAME;
+    root /var/www/app/public;
+
+    index index.php;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ \.php {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param SLIM_DEBUG "CSLIM_DEBUG";
+        fastcgi_param DOCTRINE_DEVMODE "CDOCTRINE_DEVMODE";
+        fastcgi_param DOCTRINE_DRIVER "CDOCTRINE_DRIVER";
+        fastcgi_param DOCTRINE_URL "CDOCTRINE_URL";
+        fastcgi_param LOGGER_NAME "CLOGGER_NAME";
+        include fastcgi_params;
+    }
+}

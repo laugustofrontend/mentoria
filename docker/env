@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sed -i "s|CAPP_SERVER_NAME|$APP_SERVER_NAME|" /etc/nginx/sites-enabled/default
+sed -i "s|CSLIM_DEBUG|$SLIM_DEBUG|" /etc/nginx/sites-enabled/default
+sed -i "s|CDOCTRINE_DEVMODE|$DOCTRINE_DEVMODE|" /etc/nginx/sites-enabled/default
+sed -i "s|CDOCTRINE_DRIVER|$DOCTRINE_DRIVER|" /etc/nginx/sites-enabled/default
+sed -i "s|CDOCTRINE_URL|$DOCTRINE_URL|" /etc/nginx/sites-enabled/default
+sed -i "s|CLOGGER_NAME|$LOGGER_NAME|" /etc/nginx/sites-enabled/default

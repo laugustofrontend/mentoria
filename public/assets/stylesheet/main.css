@@ -1,0 +1,16 @@
+.menu {
+    padding-right: 1rem;
+}
+.navbar-default .navbar-brand:hover {
+    background: #ccc;
+    color: #000;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    background: #ccc;
+
+}
+
+.footer {
+    margin-top: 10rem;
+    padding: 1rem 0;
+}

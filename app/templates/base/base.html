@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 'base/head.html' only %}
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand">Mentoria</a>
+                </div>
+                {% include 'menu/nav.html' only %}
+            </div>
+        </header>
+
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <p class="text-center">Copyright <small>&copy;</small>2017 - Lucas Augusto</p>
+        </footer>
+    </div>
+</body>
+</html>

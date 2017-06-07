@@ -1,0 +1,6 @@
+APP_SERVER_NAME=lendo.dev
+SLIM_DEBUG=true
+DOCTRINE_DEVMODE=true
+DOCTRINE_DRIVER=pdo_sqlite
+DOCTRINE_URL=mysql://root:Soraia@172.21.0.19/lendo
+LOGGER_NAME=dev
