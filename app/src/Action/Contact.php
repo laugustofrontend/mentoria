@@ -23,7 +23,7 @@ final class Contact
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->view->render($response, 'contact.html');
+        $this->view->render($response, 'contact.twig');
         return $response;
     }
 }

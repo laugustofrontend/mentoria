@@ -23,7 +23,7 @@ final class About
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->view->render($response, 'about.html');
+        $this->view->render($response, 'about.twig');
         return $response;
     }
 }

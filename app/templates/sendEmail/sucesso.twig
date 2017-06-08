@@ -1,9 +1,9 @@
-{% extends 'base/main.html' %}
+{% extends "base/main.twig" %}
 
-{block content}
+{% block content %}
     <div class="jumbotron">
-        <h1>
+        <p class="text-center">
             Parabéns {{ name }}, seu email foi enviado com sucesso!!!.
-        </h1>
+        </p>
     </div>
 {% endblock %}

@@ -28,19 +28,23 @@ class SendEmail
     {
         $dados = $request->getParsedBody();
 
+        $template = $this->view->fetch('sendEmail/template.twig', [
+            'name' => $dados['name'],
+            'email' => $dados['email'],
+            'message' => $dados['message']
+        ]);
+
         try {
-            $this->email->addBody('<p>'. $dados['name'] .'</p>');
-            $this->email->addBody('<p>'. $dados['email'] .'</p>');
-            $this->email->addBody('<p>'. $dados['message'] .'</p>');
+            $this->email->addBody($template);
 
             $this->email->addSubject('Novo Contato');
-            $this->email->addAddress('lucas.augusto5061@gmail.com');
+            $this->email->addAddress('lucas.augusto5061@gmail.com', 'Lucas Augusto');
             $this->email->send();
-            $this->view->render($response, 'sendEmail/sucesso.html', [
+            $this->view->render($response, 'sendEmail/sucesso.twig', [
                 'name' => $dados['name']
             ]);
         } catch (\Exception $exp) {
-            $this->view->render($response, 'sendEmail/error.html', [
+            $this->view->render($response, 'sendEmail/error.twig', [
                 'error' => $exp->getMessage()
             ]);
         }

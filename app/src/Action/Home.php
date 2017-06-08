@@ -22,7 +22,7 @@ final class Home
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->view->render($response, 'home.html');
+        $this->view->render($response, 'home.twig');
         return $response;
     }
 }
