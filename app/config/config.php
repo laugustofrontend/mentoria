@@ -14,7 +14,7 @@
                 'cache' => false,
                 'debug' => true
             ],
-            'email' => [
+            'sendEmail' => [
                 'host' => 'smtp.gmail.com',
                 'username' => 'lucas.augusto5061@gmail.com',
                 'password' => 'tprplgynqmzisgvk',

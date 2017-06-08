@@ -10,13 +10,13 @@ namespace App\Action;
 
 use PSR\Http\Message\ServerRequestInterface as Request;
 use PSR\Http\Message\ResponseInterface as Response;
-use Slim\Twig as View;
+use Slim\Views\Twig as View;
 
 final class About
 {
     private $view;
 
-    public function __construct($view)
+    public function __construct(View $view)
     {
         $this->view = $view;
     }

@@ -23,7 +23,7 @@
         return $view;
     };
 
-    // route view project
+    // views of project
     $container[App\Action\Home::class] = function ($container)
     {
         return new App\Action\Home($container['view']);
@@ -37,22 +37,26 @@
         return new App\Action\Contact($container['view']);
     };
 
-    // settings phpmailer
+    // settings PHPMailer
     $container['email'] = function ($container)
     {
-        $emailconfig = $container->get('settings')['email'];
-        $mail = new \phpmailer;
+        $emailconfig = $container->get('settings')['sendEmail'];
+        $mail = new \PHPMailer;
 
-        $mail->issmtp();
-        $mail->smtpauth = true;
-        $mail->smtpsecure = 'tls';
-
-        $mail->host = $emailconfig['host'];
-        $mail->username = $emailconfig['username'];
-        $mail->password = $emailconfig['password'];
-        $mail->port = $emailconfig['port'];
-        
-        $mail->ishtml(true);
+        $mail->isSMTP();
+        $mail->Host = $emailconfig['host'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $emailconfig['username'];
+        $mail->Password = $emailconfig['password'];
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = $emailconfig['port'];
+        $mail->isHTML(true);
 
         return $mail;
-    }
+    };
+    $container[App\Action\SendEmail::class] = function ($container) {
+        return new App\Action\SendEmail($container['App\Utils\EmailPHPMailer'], $container['view']);
+    };
+    $container[App\Utils\EmailPHPMailer::class] = function ($container) {
+        return new App\Utils\EmailPHPMailer($container['email']);
+    };

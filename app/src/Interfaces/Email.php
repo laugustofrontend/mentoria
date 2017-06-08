@@ -3,7 +3,7 @@
 
     interface Email
     {
-        public function __construct();
+        public function __construct ($sender);
 
         public function addAddress(string $address, string $name = null);
 

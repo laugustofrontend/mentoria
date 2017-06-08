@@ -9,3 +9,4 @@
     $app->get('/', App\Action\Home::class);
     $app->get('/about', App\Action\About::class);
     $app->get('/contact', App\Action\Contact::class);
+    $app->post('/sendemail', App\Action\SendEmail::class);
