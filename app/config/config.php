@@ -13,6 +13,12 @@
                 'templates' => __DIR__ . '/../templates',
                 'cache' => false,
                 'debug' => true
+            ],
+            'email' => [
+                'host' => 'smtp.gmail.com',
+                'username' => 'lucas.augusto5061@gmail.com',
+                'password' => 'tprplgynqmzisgvk',
+                'port' => '587'
             ]
         ]
     ];

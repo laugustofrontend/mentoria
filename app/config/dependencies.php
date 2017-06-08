@@ -23,6 +23,7 @@
         return $view;
     };
 
+    // route view project
     $container[App\Action\Home::class] = function ($container)
     {
         return new App\Action\Home($container['view']);
@@ -35,3 +36,23 @@
     {
         return new App\Action\Contact($container['view']);
     };
+
+    // settings phpmailer
+    $container['email'] = function ($container)
+    {
+        $emailconfig = $container->get('settings')['email'];
+        $mail = new \phpmailer;
+
+        $mail->issmtp();
+        $mail->smtpauth = true;
+        $mail->smtpsecure = 'tls';
+
+        $mail->host = $emailconfig['host'];
+        $mail->username = $emailconfig['username'];
+        $mail->password = $emailconfig['password'];
+        $mail->port = $emailconfig['port'];
+        
+        $mail->ishtml(true);
+
+        return $mail;
+    }
