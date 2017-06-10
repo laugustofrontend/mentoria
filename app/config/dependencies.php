@@ -43,14 +43,17 @@
         $emailconfig = $container->get('settings')['sendEmail'];
         $mail = new \PHPMailer;
 
+//        define secure
         $mail->isSMTP();
-        $mail->Host = $emailconfig['host'];
         $mail->SMTPAuth = true;
+        $mail->isHTML(true);
+        $mail->SMTPSecure = 'tls';
+
+//        settings email
+        $mail->Host = $emailconfig['host'];
         $mail->Username = $emailconfig['username'];
         $mail->Password = $emailconfig['password'];
-        $mail->SMTPSecure = 'tls';
         $mail->Port = $emailconfig['port'];
-        $mail->isHTML(true);
 
         return $mail;
     };

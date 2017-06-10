@@ -5,11 +5,13 @@
     {
         public function __construct ($sender);
 
-        public function addAddress(string $address, string $name = null);
+        public function addAddress (string $address, string $name = null);
 
-        public function addSubject(string $subject);
+        public function addFromEmail (string $from, string $name = null);
 
-        public function addBody(string $body);
+        public function addSubject (string $subject);
 
-        public function send();
+        public function addBody (string $body);
+
+        public function send ();
     }

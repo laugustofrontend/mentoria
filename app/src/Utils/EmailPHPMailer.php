@@ -1,7 +1,9 @@
 <?php
 	namespace App\Utils;
 
-	class EmailPHPMailer implements \App\Interfaces\Email
+	use \App\Interfaces\Email as Email;
+
+	class EmailPHPMailer implements Email
 	{
 		private $sender;
 
@@ -14,6 +16,11 @@
 		{
 			$this->sender->addAddress($address, $name);
 		}
+
+		public function addFromEmail (string $from, string $name = null)
+        {
+		    $this->sender->setFrom($from, $name);
+        }
 
 		public function addSubject (string $subject)
 		{

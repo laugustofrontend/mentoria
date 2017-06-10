@@ -31,14 +31,16 @@ class SendEmail
         $template = $this->view->fetch('sendEmail/template.twig', [
             'name' => $dados['name'],
             'email' => $dados['email'],
+            'subject' => $dados['subject'],
             'message' => $dados['message']
         ]);
 
         try {
             $this->email->addBody($template);
 
-            $this->email->addSubject('Novo Contato');
+            $this->email->addSubject($dados['subject']);
             $this->email->addAddress('lucas.augusto5061@gmail.com', 'Lucas Augusto');
+            $this->email->addFromEmail($dados['email'], $dados['name']);
             $this->email->send();
             $this->view->render($response, 'sendEmail/sucesso.twig', [
                 'name' => $dados['name']
