@@ -18,13 +18,13 @@ class SendEmail
     private $email;
     private $view;
 
-    public function __construct (Email $email, View $view)
+    public function __construct(Email $email, View $view)
     {
         $this->email = $email;
         $this->view = $view;
     }
 
-    public function __invoke (Request $request, Response $response, $args)
+    public function __invoke(Request $request, Response $response, $args)
     {
         $dados = $request->getParsedBody();
 

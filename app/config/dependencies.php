@@ -24,22 +24,18 @@
     };
 
     // views of project
-    $container[App\Action\Home::class] = function ($container)
-    {
+    $container[App\Action\Home::class] = function ($container) {
         return new App\Action\Home($container['view']);
     };
-    $container[App\Action\About::class] = function ($container)
-    {
+    $container[App\Action\About::class] = function ($container) {
         return new App\Action\About($container['view']);
     };
-    $container[App\Action\Contact::class] = function ($container)
-    {
+    $container[App\Action\Contact::class] = function ($container) {
         return new App\Action\Contact($container['view']);
     };
 
     // settings PHPMailer
-    $container['email'] = function ($container)
-    {
+    $container['email'] = function ($container) {
         $emailconfig = $container->get('settings')['sendEmail'];
         $mail = new \PHPMailer;
 

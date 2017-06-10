@@ -11,10 +11,7 @@ namespace App;
 
     $config = require __DIR__ . '/../app/config/config.php';
 
-
     $app = new \Slim\App($config);
-
-
 
     require __DIR__ . '/../app/config/dependencies.php';
     require __DIR__ . '/../app/config/routes.php';
