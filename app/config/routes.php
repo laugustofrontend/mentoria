@@ -10,3 +10,4 @@
     $app->get('/about', App\Action\About::class);
     $app->get('/contact', App\Action\Contact::class);
     $app->post('/sendemail', App\Action\SendEmail::class);
+    $app->get('/hello/{name}', App\Action\Hello::class);

@@ -33,6 +33,9 @@
     $container[App\Action\Contact::class] = function ($container) {
         return new App\Action\Contact($container['view']);
     };
+    $container[App\Action\Hello::class] = function ($container) {
+        return new App\Action\Hello($container['view']);
+    };
 
     // settings PHPMailer
     $container['email'] = function ($container) {
