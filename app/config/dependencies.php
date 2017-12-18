@@ -23,9 +23,22 @@
         return $view;
     };
 
+    // connections db
+    $container['pdo'] = function ($container) {
+        $db = $container->get('settings')['db'];
+
+        try {
+            $PDO = new PDO("mysql:host={$db['host']};dbname={$db['dbname']}", $db['user'], $db['pass']);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        return $PDO;
+    };
+
     // views of project
     $container[App\Action\Home::class] = function ($container) {
-        return new App\Action\Home($container['view']);
+        return new App\Action\Home($container['view'], $container['pdo']);
     };
     $container[App\Action\About::class] = function ($container) {
         return new App\Action\About($container['view']);

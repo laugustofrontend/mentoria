@@ -14,6 +14,7 @@ use Slim\Views\Twig as View;
 final class Home
 {
     private $view;
+    private $PDO;
 
     public function __construct(View $view)
     {

@@ -40,7 +40,7 @@ class SendEmail
 
             $this->email->addSubject($dados['subject']);
             $this->email->addAddress('lucas.augusto5061@gmail.com', 'Lucas Augusto');
-            $this->email->addFromEmail($dados['email'], $dados['name']);
+            $this->email->addFromEmail("{$dados['email']}", "{$dados['name']}");
             $this->email->send();
             $this->view->render($response, 'sendEmail/sucesso.twig', [
                 'name' => $dados['name']
