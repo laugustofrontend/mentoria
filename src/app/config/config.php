@@ -21,9 +21,9 @@ return [
             'port' => '587'
         ],
         'db' => [
-            'host' => 'localhost',
-            'user' => 'lucas',
-            'pass' => '123456',
+            'host' => '127.0.0.1',
+            'user' => 'mentoria',
+            'pass' => 'mentoria',
             'dbname' => 'mentoria'
         ]
     ]

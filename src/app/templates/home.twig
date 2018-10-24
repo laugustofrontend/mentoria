@@ -1,5 +1,26 @@
 {% extends "base/main.twig" %}
 
 {% block content %}
-    <h1 class="text-capitalize text-center"> Home </h1>
+    <h1 class="text-capitalize text-center">
+        Home
+    </h1>
+
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{ user.name }</td>
+                        <td>{ user.email }</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
